@@ -39,9 +39,21 @@ Implemented data processing and transformation tasks:
 1. Load the filtered dataset file.
 2. Validate and correct data types.
 3. Select independent and target features.
-4. Create training, validation, and testing splits.
-5. Scale datasets to a [0,1] range using [MinMaxScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html).
-6. Store processed data files (train, validate, test) to a local folder.
+4. Apply an explicit volume policy and feature-engineering options:
+   - Prefer `TickVolume` as the primary market-activity proxy when available (useful when broker-reported real volume is sparse/zero-heavy).
+   - Build the final model `Volume` from the selected source (`TickVolume` or fallback `Volume`).
+   - Optionally include `Spread` as an engineered feature for OTC-style markets.
+5. Run data-quality checks in the preprocessing notebook for activity features:
+   - non-null ratio
+   - zero-value ratio
+6. Create training, validation, and testing splits.
+7. Scale datasets to a [0,1] range using [MinMaxScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html).
+8. Store processed data files (train, validate, test) to a local folder.
+
+**Volume metadata note**
+- `Volume` is proxy-based and may come from `TickVolume` (preferred) or raw `Volume` (fallback) depending on source availability.
+- In this repository's Google Stock workflow, the exact source used is `Volume`.
+- Interpretation and transferability: model effects tied to `Volume` should be interpreted as activity-proxy effects and may not transfer directly across feeds/markets with different volume definitions.
 
 ### PHASE 3 - Model Training and Inference
 > Corresponding notebook:  [model-training.ipynb](https://github.com/sinanw/lstm-stock-price-prediction/blob/main/notebooks/3-model-training.ipynb)
