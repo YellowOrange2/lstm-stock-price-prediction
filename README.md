@@ -1,6 +1,25 @@
 # LSTM Time Series - Multivariate Stock Price Prediction
 This project implements a time series multivariate analysis using RNN/LSTM for stock price predictions. A deep RNN model was created and trained on five years of historical Google stock price data to forecast the stock performance over a two-month period.
 
+
+## Environment Setup
+Create a Python virtual environment and install project dependencies before running notebooks:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+Verify the core preprocessing dependency is available:
+
+```bash
+python -c "import pandas as pd; print(pd.__version__)"
+```
+
+If your environment routes traffic through a restricted proxy, ensure PyPI access is allowed (or use an internal mirror) so `pip` can resolve packages.
+
 ## Data Set ([Google Stock Price](https://finance.yahoo.com/quote/GOOG/history))
 The dataset utilized comprises historical records for the stock price of [Alphabet Inc. (GOOG)](https://finance.yahoo.com/quote/GOOG/history), captured on daily basis.
 
