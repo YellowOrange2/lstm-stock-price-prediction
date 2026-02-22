@@ -1,0 +1,18 @@
+{
+  "input_file": "..\\data\\raw\\RAW_M10_XAUUSD_2015_2026.csv",
+  "output_file": "..//data//interim//xauusd_m10_recent.csv",
+  "audit_output_file": "..//data//interim//xauusd_m10_recent_audit.csv",
+  "volume_policy": "tick_volume",
+  "final_features": [
+    "Open",
+    "High",
+    "Low",
+    "Close",
+    "Adj Close",
+    "Volume",
+    "Spread"
+  ],
+  "row_count": 391344,
+  "timezone_note": "Broker server time (timezone not provided in export)",
+  "detected_source_format": "single-column tab-delimited payload"
+}

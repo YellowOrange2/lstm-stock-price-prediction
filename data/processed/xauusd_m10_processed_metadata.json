@@ -1,0 +1,24 @@
+{
+  "input_file": "..//data//processed//xauusd_m10_recent.csv",
+  "selected_volume_policy": "tick_volume",
+  "final_feature_list": [
+    "Open",
+    "High",
+    "Low",
+    "Close",
+    "Adj Close",
+    "Volume",
+    "Spread"
+  ],
+  "row_count": 391344,
+  "split_row_counts": {
+    "train": 246612,
+    "validate": 35479,
+    "test": 106113
+  },
+  "output_files": [
+    "..//data//processed//xauusd_m10_processed_train.csv",
+    "..//data//processed//xauusd_m10_processed_validate.csv",
+    "..//data//processed//xauusd_m10_processed_test.csv"
+  ]
+}
